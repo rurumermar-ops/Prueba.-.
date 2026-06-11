@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mi Tienda Online - Inicio</title>
+    <title>Mi Tienda de Roblox - Inicio</title>
     <style>
         * {
             box-sizing: border-box;
@@ -68,16 +68,16 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            color: #7f8c8d;
+            color: white;
             font-size: 1.2rem;
             font-weight: bold;
         }
 
-        /* Colores simulados para los fondos de los artículos */
-        .img-1 { background: #ff7675; color: white; }
-        .img-2 { background: #74b9ff; color: white; }
-        .img-3 { background: #55efc4; color: white; }
-        .img-4 { background: #ffeaa7; color: #2d3436; }
+        /* Colores de fondo para las tarjetas de ítems de Roblox */
+        .img-1 { background: #ff7675; }
+        .img-2 { background: #74b9ff; }
+        .img-3 { background: #55efc4; }
+        .img-4 { background: #ffeaa7; color: #2d3436 !important; }
 
         .producto-info {
             padding: 20px;
@@ -103,8 +103,17 @@
         .producto-precio {
             font-size: 1.6rem;
             font-weight: bold;
-            color: #27ae60;
+            color: #d4af37; /* Color dorado */
             margin-top: auto;
+            display: flex;
+            align-items: center;
+        }
+
+        .robux-icon {
+            width: 24px;
+            height: 24px;
+            vertical-align: middle;
+            margin-right: 6px;
         }
 
         footer {
@@ -120,62 +129,70 @@
 
     <div class="container">
         <header>
-            <h1>Mi Tienda Digital</h1>
-            <p>Selecciona el producto que deseas adquirir para ver los detalles de compra</p>
+            <h1>Mi Tienda de Roblox</h1>
+            <p>Selecciona el ítem o pase que deseas adquirir para ver los detalles de compra</p>
         </header>
 
         <main class="grid-productos">
-            <div class="producto-card" onclick="irABuy('Auriculares Gamer Pro', '89.99', 'Auriculares con sonido envolvente 7.1, micrófono con cancelación de ruido y luces RGB configurables. Almohadillas premium para largas sesiones de juego.', 'img-1')">
-                <div class="producto-imagen img-1">🧼 Lavadorito (+900M)</div>
+            <div class="producto-card" onclick="irABuy('Kit de Animación Ninja', '250', 'Consigue las animaciones exclusivas de Ninja para tu avatar de Roblox. Incluye salto, caída, carrera y pose estática optimizada.', 'img-1')">
+                <div class="producto-imagen img-1">🥷 Animación Ninja</div>
                 <div class="producto-info">
-                    <h2 class="producto-titulo">🧼 Lavadorito (+900M)</h2>
-                    <p class="producto-descripcion">Lavadorito Rainbow de +900M/s de steal a brainrot</p>
-                    <p class="producto-precio">300 Robux</p>
+                    <h2 class="producto-titulo">Kit de Animación Ninja</h2>
+                    <p class="producto-descripcion">Paquete de movimientos ninja exclusivo para lucir genial en cualquier juego.</p>
+                    <p class="producto-precio">
+                        <img src="asd.png" alt="Robux" class="robux-icon">250
+                    </p>
                 </div>
             </div>
 
-            <div class="producto-card" onclick="irABuy('Teclado Mecánico RGB', '120.00', 'Teclado mecánico con switches red, distribución en español y estructura de aluminio de alta resistencia.', 'img-2')">
-                <div class="producto-imagen img-2">⌨️ Teclado Mecánico</div>
+            <div class="producto-card" onclick="irABuy('Gamepass: Radio Portátil', '500', 'Escucha tus canciones favoritas en cualquier servidor que permita audio. Solo equipa tu radio e introduce el ID de tu canción.', 'img-2')">
+                <div class="producto-imagen img-2">📻 Radio Portátil</div>
                 <div class="producto-info">
-                    <h2 class="producto-titulo">Teclado Mecánico RGB</h2>
-                    <p class="producto-descripcion">Switches mecánicos ultra rápidos, retroiluminación personalizada y chasis de aluminio.</p>
-                    <p class="producto-precio">120.00 €</p>
+                    <h2 class="producto-titulo">Gamepass: Radio Portátil</h2>
+                    <p class="producto-descripcion">¡Pon música personalizada para ti y tus amigos en tiempo real!</p>
+                    <p class="producto-precio">
+                        <img src="asd.png" alt="Robux" class="robux-icon">500
+                    </p>
                 </div>
             </div>
 
-            <div class="producto-card" onclick="irABuy('Ratón Ergonómico Inalámbrico', '45.50', 'Ratón inalámbrico de alta precisión con hasta 16000 DPI, batería de larga duración y diseño ergonómico para evitar la fatiga.', 'img-3')">
-                <div class="producto-imagen img-3">🖱️ Ratón Inalámbrico</div>
+            <div class="producto-card" onclick="irABuy('Dominus Frigidus Falso', '150', '¿Siempre quisiste un Dominus? Consigue esta réplica en formato UGC diseñada con materiales helados y detalles premium.', 'img-3')">
+                <div class="producto-imagen img-3">👑 Dominus Frigidus (UGC)</div>
                 <div class="producto-info">
-                    <h2 class="producto-titulo">Ratón Inalámbrico</h2>
-                    <p class="producto-descripcion">Alta precisión de 16000 DPI, diseño ergonómico y batería recargable de larga duración.</p>
-                    <p class="producto-precio">45.50 €</p>
+                    <h2 class="producto-titulo">Dominus Frigidus (UGC)</h2>
+                    <p class="producto-descripcion">Accesorio UGC para la cabeza con diseño de capucha legendaria helada.</p>
+                    <p class="producto-precio">
+                        <img src="asd.png" alt="Robux" class="robux-icon">150
+                    </p>
                 </div>
             </div>
 
-            <div class="producto-card" onclick="irABuy('Alfombrilla XL Premium', '24.99', 'Alfombrilla de tela de tamaño extendido (900x400mm) con bordes cosidos y base de goma antideslizante.', 'img-4')">
-                <div class="producto-imagen img-4">🗺️ Alfombrilla XL</div>
+            <div class="producto-card" onclick="irABuy('Pase VIP Servidores', '1200', 'Acceso de por vida a los comandos básicos del servidor, chat con color exclusivo y un prefijo [VIP] antes de tu nombre.', 'img-4')">
+                <div class="producto-imagen img-4">✨ Pase VIP Premium</div>
                 <div class="producto-info">
-                    <h2 class="producto-titulo">Alfombrilla XL Premium</h2>
-                    <p class="producto-descripcion">Superficie suave optimizada para sensores ópticos, bordes reforzados y tamaño gigante.</p>
-                    <p class="producto-precio">24.99 €</p>
+                    <h2 class="producto-titulo">Pase VIP Premium</h2>
+                    <p class="producto-descripcion">Desbloquea comandos, tags exclusivos de chat y beneficios únicos.</p>
+                    <p class="producto-precio">
+                        <img src="asd.png" alt="Robux" class="robux-icon">1200
+                    </p>
                 </div>
             </div>
         </main>
 
         <footer>
-            <p>&copy; 2026 Mi Tienda Online. Proyecto listo para GitHub Pages.</p>
+            <p>&copy; 2026 Mi Tienda de Roblox. Proyecto listo para GitHub Pages.</p>
         </footer>
     </div>
 
     <script>
         function irABuy(nombre, precio, descripcion, claseImagen) {
-            // Guardamos temporalmente los datos en el navegador
+            // Guardamos los datos en localStorage (solo enviamos el número puro del precio)
             localStorage.setItem('producto_nombre', nombre);
             localStorage.setItem('producto_precio', precio);
             localStorage.setItem('producto_descripcion', descripcion);
             localStorage.setItem('producto_clase_imagen', claseImagen);
             
-            // Cambia de página automáticamente hacia buy.html
+            // Redireccionamos a la página de compra
             window.location.href = 'buy.html';
         }
     </script>
