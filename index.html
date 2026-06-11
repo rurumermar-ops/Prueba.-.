@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Tienda Online - Inicio</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #f4f7f6;
+            color: #333;
+            padding: 20px;
+        }
+
+        header {
+            text-align: center;
+            padding: 30px 0;
+            background: linear-gradient(135deg, #2c3e50, #3498db);
+            color: white;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .grid-productos {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            padding: 10px;
+        }
+
+        .producto-card {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .producto-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+        }
+
+        .producto-imagen {
+            width: 100%;
+            height: 200px;
+            background-color: #e0e0e0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #7f8c8d;
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+
+        /* Colores simulados para los fondos de los artículos */
+        .img-1 { background: #ff7675; color: white; }
+        .img-2 { background: #74b9ff; color: white; }
+        .img-3 { background: #55efc4; color: white; }
+        .img-4 { background: #ffeaa7; color: #2d3436; }
+
+        .producto-info {
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+
+        .producto-titulo {
+            font-size: 1.4rem;
+            margin-bottom: 10px;
+            color: #2c3e50;
+        }
+
+        .producto-descripcion {
+            font-size: 0.95rem;
+            color: #7f8c8d;
+            margin-bottom: 15px;
+            line-height: 1.4;
+            flex-grow: 1;
+        }
+
+        .producto-precio {
+            font-size: 1.6rem;
+            font-weight: bold;
+            color: #27ae60;
+            margin-top: auto;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 50px;
+            padding: 20px;
+            color: #7f8c8d;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <h1>Mi Tienda Digital</h1>
+            <p>Selecciona el producto que deseas adquirir para ver los detalles de compra</p>
+        </header>
+
+        <main class="grid-productos">
+            <div class="producto-card" onclick="irABuy('Auriculares Gamer Pro', '89.99', 'Auriculares con sonido envolvente 7.1, micrófono con cancelación de ruido y luces RGB configurables. Almohadillas premium para largas sesiones de juego.', 'img-1')">
+                <div class="producto-imagen img-1">🎧 Auriculares Pro</div>
+                <div class="producto-info">
+                    <h2 class="producto-titulo">Auriculares Gamer Pro</h2>
+                    <p class="producto-descripcion">Sonido envolvente 7.1, micrófono con cancelación de ruido y luces RGB.</p>
+                    <p class="producto-precio">89.99 €</p>
+                </div>
+            </div>
+
+            <div class="producto-card" onclick="irABuy('Teclado Mecánico RGB', '120.00', 'Teclado mecánico con switches red, distribución en español y estructura de aluminio de alta resistencia.', 'img-2')">
+                <div class="producto-imagen img-2">⌨️ Teclado Mecánico</div>
+                <div class="producto-info">
+                    <h2 class="producto-titulo">Teclado Mecánico RGB</h2>
+                    <p class="producto-descripcion">Switches mecánicos ultra rápidos, retroiluminación personalizada y chasis de aluminio.</p>
+                    <p class="producto-precio">120.00 €</p>
+                </div>
+            </div>
+
+            <div class="producto-card" onclick="irABuy('Ratón Ergonómico Inalámbrico', '45.50', 'Ratón inalámbrico de alta precisión con hasta 16000 DPI, batería de larga duración y diseño ergonómico para evitar la fatiga.', 'img-3')">
+                <div class="producto-imagen img-3">🖱️ Ratón Inalámbrico</div>
+                <div class="producto-info">
+                    <h2 class="producto-titulo">Ratón Inalámbrico</h2>
+                    <p class="producto-descripcion">Alta precisión de 16000 DPI, diseño ergonómico y batería recargable de larga duración.</p>
+                    <p class="producto-precio">45.50 €</p>
+                </div>
+            </div>
+
+            <div class="producto-card" onclick="irABuy('Alfombrilla XL Premium', '24.99', 'Alfombrilla de tela de tamaño extendido (900x400mm) con bordes cosidos y base de goma antideslizante.', 'img-4')">
+                <div class="producto-imagen img-4">🗺️ Alfombrilla XL</div>
+                <div class="producto-info">
+                    <h2 class="producto-titulo">Alfombrilla XL Premium</h2>
+                    <p class="producto-descripcion">Superficie suave optimizada para sensores ópticos, bordes reforzados y tamaño gigante.</p>
+                    <p class="producto-precio">24.99 €</p>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <p>&copy; 2026 Mi Tienda Online. Proyecto listo para GitHub Pages.</p>
+        </footer>
+    </div>
+
+    <script>
+        function irABuy(nombre, precio, descripcion, claseImagen) {
+            // Guardamos temporalmente los datos en el navegador
+            localStorage.setItem('producto_nombre', nombre);
+            localStorage.setItem('producto_precio', precio);
+            localStorage.setItem('producto_descripcion', descripcion);
+            localStorage.setItem('producto_clase_imagen', claseImagen);
+            
+            // Cambia de página automáticamente hacia buy.html
+            window.location.href = 'buy.html';
+        }
+    </script>
+</body>
+</html>
