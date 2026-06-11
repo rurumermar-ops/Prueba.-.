@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Confirmar Transacción - Roblox Premium Store</title>
+    <title>Confirmar Pedido | Roblox Premium Store</title>
     <style>
+        /* CONFIGURACIÓN GLOBAL PREMIUM */
         * {
             box-sizing: border-box;
             margin: 0;
@@ -13,176 +14,271 @@
         }
 
         body {
-            /* Mismo fondo profesional con capa oscura */
-            background-image: linear-gradient(rgba(15, 23, 42, 0.9), rgba(15, 23, 42, 0.9)), url('background imgg.jpg');
+            background-image: linear-gradient(to bottom, rgba(8, 12, 24, 0.94), rgba(12, 16, 32, 0.96)), url('background imgg.jpg');
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
-            color: #f1f5f9;
-            padding: 20px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
+            color: #f8fafc;
             min-height: 100vh;
-        }
-
-        .checkout-card {
-            background: rgba(30, 41, 59, 0.75);
-            backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            border-radius: 16px;
-            max-width: 550px;
-            width: 100%;
-            overflow: hidden;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
-        }
-
-        .badge-visual {
-            height: 160px;
-            background: rgba(15, 23, 42, 0.5);
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 3.5rem;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            padding: 40px 20px;
+            overflow-x: hidden;
         }
 
-        .checkout-content {
-            padding: 35px;
+        .container {
+            width: 100%;
+            max-width: 650px;
+            perspective: 1000px;
         }
 
-        .volver-btn {
-            display: inline-block;
-            margin-bottom: 25px;
-            color: #38bdf8;
+        /* TARJETA PRINCIPAL DE PAGO (CHECKOUT CARD) */
+        .checkout-card {
+            background: rgba(17, 24, 39, 0.6);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 32px;
+            padding: 45px;
+            box-shadow: 0 30px 70px rgba(0, 0, 0, 0.5), 0 0 50px rgba(56, 189, 248, 0.05);
+            animation: cardAppear 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+
+        @keyframes cardAppear {
+            from {
+                opacity: 0;
+                transform: translateY(30px) rotateX(-5deg);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0) rotateX(0);
+            }
+        }
+
+        /* ENCABEZADO DE LA PÁGINA */
+        header {
+            text-align: center;
+            margin-bottom: 35px;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: #94a3b8;
             text-decoration: none;
-            font-weight: 600;
             font-size: 0.95rem;
-            transition: color 0.2s;
+            font-weight: 600;
+            margin-bottom: 20px;
+            transition: all 0.3s ease;
+            padding: 6px 14px;
+            background: rgba(255,255,255,0.02);
+            border: 1px solid rgba(255,255,255,0.05);
+            border-radius: 12px;
         }
 
-        .volver-btn:hover {
-            color: #7dd3fc;
-            text-decoration: underline;
+        .back-link:hover {
+            color: #38bdf8;
+            background: rgba(56, 189, 248, 0.08);
+            border-color: rgba(56, 189, 248, 0.2);
+            transform: translateX(-4px);
         }
 
-        h1 {
-            font-size: 1.8rem;
+        header h1 {
+            font-size: 2.2rem;
+            font-weight: 800;
+            letter-spacing: 1px;
+            background: linear-gradient(135deg, #ffffff, #94a3b8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* RESUMEN DEL PRODUCTO (PRODUCT BOX) */
+        .product-summary-box {
+            background: linear-gradient(145deg, rgba(30, 41, 59, 0.5), rgba(15, 23, 42, 0.5));
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 20px;
+            padding: 30px;
+            margin-bottom: 35px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Brillo de fondo estético */
+        .product-summary-box::before {
+            content: '';
+            position: absolute;
+            top: -50px;
+            right: -50px;
+            width: 130px;
+            height: 130px;
+            background: #38bdf8;
+            filter: blur(70px);
+            opacity: 0.12;
+        }
+
+        .product-title {
+            font-size: 1.7rem;
+            font-weight: 800;
             color: #ffffff;
-            margin-bottom: 15px;
-            font-weight: 700;
+            margin-bottom: 12px;
+            letter-spacing: 0.5px;
         }
 
-        .descripcion {
+        .product-description {
             font-size: 1rem;
             color: #94a3b8;
             line-height: 1.6;
-            margin-bottom: 30px;
+            margin-bottom: 25px;
         }
 
-        .precio-seccion {
+        /* SECCIÓN DE PRECIOS */
+        .price-row {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            border-top: 1px solid rgba(255, 255, 255, 0.08);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-            padding: 20px 0;
-            margin-bottom: 30px;
+            padding-top: 18px;
+            border-top: 1px solid rgba(255, 255, 255, 0.06);
         }
 
-        .precio-label {
-            font-size: 1.05rem;
-            color: #cbd5e1;
+        .price-label {
+            font-size: 1rem;
             text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing: 1.5px;
+            color: #64748b;
+            font-weight: 700;
         }
 
-        .precio-contenedor {
+        .product-price {
+            font-size: 2rem;
+            font-weight: 800;
+            color: #fbbf24; /* Color dorado premium de Robux */
             display: flex;
             align-items: center;
-            gap: 8px;
+            gap: 10px;
+            text-shadow: 0 2px 10px rgba(251, 191, 36, 0.2);
         }
 
         .robux-icon {
-            width: 28px;
-            height: 28px;
+            width: 32px;
+            height: 32px;
+            object-fit: contain;
+            filter: drop-shadow(0 2px 8px rgba(251, 191, 36, 0.4));
+        }
+
+        /* CONTENEDOR DE PASOS DE INSTRUCCIÓN */
+        .instruction-box {
+            background: rgba(15, 23, 42, 0.3);
+            border-left: 3px solid #5865f2;
+            padding: 16px 20px;
+            border-radius: 0 16px 16px 0;
+            margin-bottom: 35px;
+            font-size: 0.95rem;
+            color: #cbd5e1;
+            line-height: 1.5;
+        }
+
+        /* BOTÓN DE ACCIÓN MEGA COMPRA DISCORD */
+        .btn-discord-checkout {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 14px;
+            width: 100%;
+            background: #5865F2; /* Color corporativo oficial Discord */
+            color: #ffffff;
+            border: none;
+            padding: 18px 30px;
+            font-size: 1.15rem;
+            font-weight: 700;
+            border-radius: 16px;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            box-shadow: 0 10px 25px rgba(88, 101, 242, 0.4);
+            text-decoration: none;
+        }
+
+        .btn-discord-checkout:hover {
+            background: #4752c4;
+            transform: translateY(-3px);
+            box-shadow: 0 15px 30px rgba(88, 101, 242, 0.6), 0 0 20px rgba(255, 255, 255, 0.2);
+        }
+
+        .btn-discord-checkout:active {
+            transform: translateY(-1px);
+        }
+
+        .discord-icon-large {
+            width: 26px;
+            height: 26px;
             object-fit: contain;
         }
 
-        .precio-valor {
-            font-size: 2rem;
-            font-weight: 700;
-            color: #f59e0b;
-        }
-
-        /* Botón estilo enlace Discord profesional */
-        .btn-comprar {
-            display: block;
-            width: 100%;
-            background-color: #5865F2; /* Color oficial Blurple de Discord */
-            color: white;
+        /* FOOTER */
+        footer {
             text-align: center;
-            padding: 16px;
-            border: none;
-            border-radius: 8px;
-            font-size: 1.1rem;
-            font-weight: 600;
-            cursor: pointer;
-            text-decoration: none;
-            transition: background-color 0.2s, transform 0.1s;
-            box-shadow: 0 4px 12px rgba(88, 101, 242, 0.3);
-        }
-
-        .btn-comprar:hover {
-            background-color: #4752C4;
-        }
-
-        .btn-comprar:active {
-            transform: scale(0.98);
+            margin-top: 30px;
+            color: #475569;
+            font-size: 0.85rem;
         }
     </style>
 </head>
 <body>
 
-    <div class="checkout-card">
-        <div id="productoVisual" class="badge-visual">📦</div>
-        
-        <div class="checkout-content">
-            <a href="index.html" class="volver-btn">&larr; Volver al catálogo</a>
-            <h1 id="productoNombre">Cargando artículo...</h1>
-            <p id="productoDescripcion" class="descripcion">Cargando especificaciones...</p>
-            
-            <div class="precio-seccion">
-                <span class="precio-label">Precio del Ítem:</span>
-                <div class="precio-contenedor">
-                    <img src="asd.png" alt="Robux" class="robux-icon">
-                    <span id="productoPrecio" class="precio-valor">0</span>
+    <div class="container">
+        <a href="index.html" class="back-link">&larr; Volver a la Tienda</a>
+
+        <div class="checkout-card">
+            <header>
+                <h1>Confirmación de Orden</h1>
+            </header>
+
+            <main>
+                <div class="product-summary-box">
+                    <h2 id="display-nombre" class="product-title">Cargando producto...</h2>
+                    <p id="display-descripcion" class="product-description">Por favor espera mientras recuperamos los detalles de la licencia seleccionada.</p>
+                    
+                    <div class="price-row">
+                        <span class="price-label">Precio Final</span>
+                        <div class="product-price">
+                            <img src="asd.png" alt="Robux" class="robux-icon">
+                            <span id="display-precio">0</span>
+                        </div>
+                    </div>
                 </div>
-            </div>
-            
-            <a id="enlaceDiscord" href="https://discord.gg/Q6bubRfbYX" target="_blank" class="btn-comprar">
-                Pedir por Discord
-            </a>
+
+                <div class="instruction-box">
+                    <strong>¿Cómo funciona?</strong> Al presionar el botón inferior serás redirigido a nuestra central de Discord. Abre un ticket adjuntando la captura de esta pantalla para procesar la entrega de forma inmediata.
+                </div>
+
+                <a href="https://discord.gg/TU_INVITACION" id="discord-btn" class="btn-discord-checkout">
+                    <img src="discord-logo.png" alt="Discord" class="discord-icon-large">
+                    <span>Reclamar Vía Discord</span>
+                </a>
+            </main>
         </div>
+
+        <footer>
+            <p>ID de Transacción Seguro &bull; Roblox Premium Store 2026</p>
+        </footer>
     </div>
 
     <script>
-        const nombre = localStorage.getItem('producto_nombre');
-        const precio = localStorage.getItem('producto_precio');
-        const descripcion = localStorage.getItem('producto_descripcion');
-
-        if (nombre && precio) {
-            document.getElementById('productoNombre').innerText = nombre;
-            document.getElementById('productoPrecio').innerText = precio;
-            document.getElementById('productoDescripcion').innerText = descripcion;
+        document.addEventListener("DOMContentLoaded", function() {
+            // Obtener los datos almacenados de localStorage generados en index.html
+            const productoNombre = localStorage.getItem('producto_nombre') || 'Producto Premium';
+            const productoPrecio = localStorage.getItem('producto_precio') || '0';
+            const productoDescripcion = localStorage.getItem('producto_descripcion') || 'Sin descripción disponible actualmente.';
             
-            const visualDiv = document.getElementById('productoVisual');
-            if (nombre.includes('Radio')) visualDiv.innerText = '📻';
-            else if (nombre.includes('VIP')) visualDiv.innerText = '✨';
-            else if (nombre.includes('Ninja')) visualDiv.innerText = '🥷';
-            else if (nombre.includes('Dominus')) visualDiv.innerText = '👑';
-            else visualDiv.innerText = '📦';
-        }
+            // Asignar los valores a las etiquetas visuales correspondientes
+            document.getElementById('display-nombre').textContent = productoNombre;
+            document.getElementById('display-precio').textContent = productoPrecio;
+            document.getElementById('display-descripcion').textContent = productoDescripcion;
+            
+            // Opcional: Cambiar dinámicamente el título del navegador para mejorar el UX
+            document.title = `Comprar ${productoNombre} | Roblox Store`;
+        });
     </script>
 </body>
 </html>
