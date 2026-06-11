@@ -13,7 +13,7 @@
         }
 
         body {
-            /* Mismo fondo profesional que el index.html */
+            /* Mismo fondo profesional con capa oscura */
             background-image: linear-gradient(rgba(15, 23, 42, 0.9), rgba(15, 23, 42, 0.9)), url('background imgg.jpg');
             background-size: cover;
             background-position: center;
@@ -112,13 +112,14 @@
         .precio-valor {
             font-size: 2rem;
             font-weight: 700;
-            color: #f59e0b; /* Dorado Robux */
+            color: #f59e0b;
         }
 
+        /* Botón estilo enlace Discord profesional */
         .btn-comprar {
             display: block;
             width: 100%;
-            background-color: #0284c7; /* Azul profesional */
+            background-color: #5865F2; /* Color oficial Blurple de Discord */
             color: white;
             text-align: center;
             padding: 16px;
@@ -127,12 +128,13 @@
             font-size: 1.1rem;
             font-weight: 600;
             cursor: pointer;
+            text-decoration: none;
             transition: background-color 0.2s, transform 0.1s;
-            box-shadow: 0 4px 12px rgba(2, 132, 199, 0.3);
+            box-shadow: 0 4px 12px rgba(88, 101, 242, 0.3);
         }
 
         .btn-comprar:hover {
-            background-color: #0369a1;
+            background-color: #4752C4;
         }
 
         .btn-comprar:active {
@@ -148,7 +150,7 @@
         <div class="checkout-content">
             <a href="index.html" class="volver-btn">&larr; Volver al catálogo</a>
             <h1 id="productoNombre">Cargando artículo...</h1>
-            <p id="productoDescripcion" class="descripcion">Cargando especificaciones del producto seleccionado...</p>
+            <p id="productoDescripcion" class="descripcion">Cargando especificaciones...</p>
             
             <div class="precio-seccion">
                 <span class="precio-label">Precio del Ítem:</span>
@@ -158,36 +160,28 @@
                 </div>
             </div>
             
-            <button class="btn-comprar" onclick="procesarPago()">Adquirir con Robux</button>
+            <a id="enlaceDiscord" href="https://discord.gg/Q6bubRfbYX" target="_blank" class="btn-comprar">
+                Pedir por Discord
+            </a>
         </div>
     </div>
 
     <script>
-        // Capturar la información enviada desde index.html
         const nombre = localStorage.getItem('producto_nombre');
         const precio = localStorage.getItem('producto_precio');
         const descripcion = localStorage.getItem('producto_descripcion');
 
-        // Validar e inyectar los datos en la interfaz de forma dinámica
         if (nombre && precio) {
             document.getElementById('productoNombre').innerText = nombre;
             document.getElementById('productoPrecio').innerText = precio;
             document.getElementById('productoDescripcion').innerText = descripcion;
             
-            // Colocar un emoji personalizado en la cabecera según el artículo seleccionado
             const visualDiv = document.getElementById('productoVisual');
             if (nombre.includes('Radio')) visualDiv.innerText = '📻';
             else if (nombre.includes('VIP')) visualDiv.innerText = '✨';
             else if (nombre.includes('Ninja')) visualDiv.innerText = '🥷';
             else if (nombre.includes('Dominus')) visualDiv.innerText = '👑';
             else visualDiv.innerText = '📦';
-        } else {
-            document.getElementById('productoNombre').innerText = "Error de selección";
-            document.getElementById('productoDescripcion').innerText = "Por favor, regresa al menú de inicio y selecciona un producto válido para procesar.";
-        }
-
-        function procesarPago() {
-            alert('¡Simulación de transferencia completada! Tu solicitud de compra ha sido procesada con éxito para este proyecto.');
         }
     </script>
 </body>
