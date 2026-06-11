@@ -13,7 +13,7 @@
         }
 
         body {
-            background-image: linear-gradient(rgba(15, 23, 42, 0.85), rgba(15, 23, 42, 0.85)), url('background imgg.jpg');
+            background-image: linear-gradient(rgba(10, 15, 30, 0.88), rgba(10, 15, 30, 0.88)), url('background imgg.jpg');
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
@@ -22,127 +22,199 @@
         }
 
         .container {
-            max-width: 1100px;
+            max-width: 1200px;
             margin: 0 auto;
         }
 
         header {
             text-align: center;
-            margin-bottom: 50px;
-            padding-bottom: 20px;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            margin-bottom: 60px;
+            padding-bottom: 30px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
         }
 
         header h1 {
-            font-size: 2.8rem;
-            font-weight: 700;
-            letter-spacing: 1px;
+            font-size: 3rem;
+            font-weight: 800;
+            letter-spacing: 2px;
             color: #ffffff;
-            margin-bottom: 10px;
+            margin-bottom: 12px;
+            text-shadow: 0 4px 10px rgba(0,0,0,0.5);
         }
 
         header p {
             color: #94a3b8;
-            font-size: 1.1rem;
+            font-size: 1.15rem;
+        }
+
+        /* Enlace flotante superior o botón de soporte Discord */
+        .discord-status {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: rgba(88, 101, 242, 0.15);
+            border: 1px solid rgba(88, 101, 242, 0.4);
+            padding: 8px 16px;
+            border-radius: 20px;
+            color: #5865F2;
+            font-weight: 600;
+            margin-top: 15px;
+            font-size: 0.9rem;
+        }
+
+        .discord-icon-small {
+            width: 18px;
+            height: 18px;
+            object-fit: contain;
         }
 
         .seccion-tienda {
-            margin-bottom: 50px;
+            margin-bottom: 60px;
         }
 
         .seccion-titulo {
-            font-size: 1.6rem;
-            font-weight: 600;
+            font-size: 1.7rem;
+            font-weight: 700;
             text-transform: uppercase;
             letter-spacing: 2px;
             color: #38bdf8;
-            margin-bottom: 25px;
+            margin-bottom: 30px;
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 12px;
+            border-left: 4px solid #38bdf8;
+            padding-left: 12px;
         }
 
         .grid-productos {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 35px;
         }
 
+        /* Tarjetas de Producto Premium (Slots mejorados) */
         .producto-card {
-            background: rgba(30, 41, 59, 0.7);
-            backdrop-filter: blur(8px);
+            background: linear-gradient(145deg, rgba(30, 41, 59, 0.7), rgba(15, 23, 42, 0.7));
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
             border: 1px solid rgba(255, 255, 255, 0.08);
-            border-radius: 12px;
+            border-radius: 16px;
             overflow: hidden;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
             cursor: pointer;
             display: flex;
             flex-direction: column;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
         }
 
         .producto-card:hover {
-            transform: translateY(-5px);
-            border-color: rgba(56, 189, 248, 0.4);
-            box-shadow: 0 12px 20px rgba(0, 0, 0, 0.4);
-            background: rgba(30, 41, 59, 0.85);
+            transform: translateY(-8px);
+            border-color: rgba(56, 189, 248, 0.5);
+            box-shadow: 0 20px 40px rgba(56, 189, 248, 0.15);
+            background: linear-gradient(145deg, rgba(30, 41, 59, 0.85), rgba(15, 23, 42, 0.85));
         }
 
+        /* Área visual interna del slot mejorada */
         .producto-visual {
             width: 100%;
-            height: 180px;
-            background: rgba(15, 23, 42, 0.6);
+            height: 200px;
+            background: radial-gradient(circle, rgba(30, 41, 59, 0.4) 0%, rgba(15, 23, 42, 0.8) 100%);
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.1rem;
-            font-weight: 600;
-            letter-spacing: 1px;
-            color: #cbd5e1;
+            font-size: 1.25rem;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            color: #ffffff;
             border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            position: relative;
+        }
+
+        /* Resplandor decorativo interno para que no se vea vacío */
+        .producto-visual::before {
+            content: '';
+            position: absolute;
+            width: 60px;
+            height: 60px;
+            background: #38bdf8;
+            filter: blur(40px);
+            opacity: 0.25;
+        }
+
+        .producto-card:hover .producto-visual::before {
+            opacity: 0.45;
+            width: 90px;
+            height: 90px;
+            transition: all 0.4s ease;
         }
 
         .producto-info {
-            padding: 24px;
+            padding: 28px;
             display: flex;
             flex-direction: column;
             flex-grow: 1;
         }
 
         .producto-titulo {
-            font-size: 1.3rem;
-            font-weight: 600;
+            font-size: 1.4rem;
+            font-weight: 700;
             color: #ffffff;
-            margin-bottom: 10px;
+            margin-bottom: 12px;
+            letter-spacing: 0.5px;
         }
 
         .producto-descripcion {
             font-size: 0.95rem;
             color: #94a3b8;
-            margin-bottom: 20px;
-            line-height: 1.5;
+            margin-bottom: 25px;
+            line-height: 1.6;
             flex-grow: 1;
         }
 
-        .producto-precio {
-            font-size: 1.4rem;
-            font-weight: 700;
-            color: #f59e0b;
+        /* Fila inferior con el precio y acción */
+        .producto-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
             margin-top: auto;
+            padding-top: 15px;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .producto-precio {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #f59e0b; /* Color Robux */
             display: flex;
             align-items: center;
             gap: 8px;
         }
 
         .robux-icon {
-            width: 22px;
-            height: 22px;
+            width: 24px;
+            height: 24px;
             object-fit: contain;
+        }
+
+        /* Indicador de acción limpio */
+        .btn-action-indicator {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: #38bdf8;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .producto-card:hover .btn-action-indicator {
+            color: #7dd3fc;
+            text-decoration: underline;
         }
 
         footer {
             text-align: center;
-            margin-top: 80px;
-            padding-top: 20px;
+            margin-top: 100px;
+            padding-top: 25px;
             border-top: 1px solid rgba(255, 255, 255, 0.05);
             color: #64748b;
             font-size: 0.9rem;
@@ -155,6 +227,10 @@
         <header>
             <h1>ROBLOX PREMIUM STORE</h1>
             <p>Servicio de distribución de licencias, pases y elementos exclusivos</p>
+            <div class="discord-status">
+                <img src="discord-logo.png" alt="Discord" class="discord-icon-small">
+                <span>Pedidos gestionados vía Discord Oficial</span>
+            </div>
         </header>
 
         <main>
@@ -163,24 +239,30 @@
                 
                 <div class="grid-productos">
                     <div class="producto-card" onclick="irABuy('Pagina Web', '100', 'Consigue el desarrollo técnico o la configuración base para una página web personalizada adaptada a tu proyecto o comunidad.', 'premium-item')">
-                        <div class="producto-visual">🌐 DESARROLLO WEB</div>
+                        <div class="producto-visual" style="color: #38bdf8;">🌐 DESARROLLO WEB</div>
                         <div class="producto-info">
                             <h2 class="producto-titulo">Pagina Web</h2>
-                            <p class="producto-descripcion">Diseño y desarrollo personalizado de un sitio web corporativo o de comunidad.</p>
-                            <p class="producto-precio">
-                                <img src="asd.png" alt="Robux" class="robux-icon">100
-                            </p>
+                            <p class="producto-descripcion">Diseño y desarrollo estructurado de un sitio web corporativo, portafolio o landing page de comunidad.</p>
+                            <div class="producto-footer">
+                                <p class="producto-precio">
+                                    <img src="asd.png" alt="Robux" class="robux-icon">100
+                                </p>
+                                <span class="btn-action-indicator">Adquirir &rarr;</span>
+                            </div>
                         </div>
                     </div>
 
                     <div class="producto-card" onclick="irABuy('Bot de Discord', '500', 'Obtén la creación o configuración de un Bot de Discord exclusivo con comandos avanzados para moderar y automatizar las funciones de tu servidor.', 'premium-item')">
-                        <div class="producto-visual">🤖 INTEGRACIÓN BOT</div>
+                        <div class="producto-visual" style="color: #818cf8;">🤖 INTEGRACIÓN BOT</div>
                         <div class="producto-info">
                             <h2 class="producto-titulo">Bot de Discord</h2>
-                            <p class="producto-descripcion">Configuración de un bot con sistemas de bienvenida, moderación y entretenimiento.</p>
-                            <p class="producto-precio">
-                                <img src="asd.png" alt="Robux" class="robux-icon">500
-                            </p>
+                            <p class="producto-descripcion">Configuración avanzada de un bot con sistemas automatizados de bienvenida, moderación y logs.</p>
+                            <div class="producto-footer">
+                                <p class="producto-precio">
+                                    <img src="asd.png" alt="Robux" class="robux-icon">500
+                                </p>
+                                <span class="btn-action-indicator">Adquirir &rarr;</span>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -191,24 +273,30 @@
                 
                 <div class="grid-productos">
                     <div class="producto-card" onclick="irABuy('Rainbow Lavadorito (+900M)', '350', 'Consigue al personaje especial Rainbow Lavadorito con estadísticas superiores de más de 900M para destacar dentro del servidor.', 'premium-item')">
-                        <div class="producto-visual">🌈 Rainbow Lavadorito</div>
+                        <div class="producto-visual" style="color: #fb7185;">🌈 Rainbow Lavadorito</div>
                         <div class="producto-info">
                             <h2 class="producto-titulo">Rainbow Lavadorito (+900M)</h2>
-                            <p class="producto-descripcion">Desbloqueo de personaje especial con un nivel de poder de +900M.</p>
-                            <p class="producto-precio">
-                                <img src="asd.png" alt="Robux" class="robux-icon">350
-                            </p>
+                            <p class="producto-descripcion">Desbloqueo inmediato de personaje especial con un nivel de poder y estadísticas base de +900M.</p>
+                            <div class="producto-footer">
+                                <p class="producto-precio">
+                                    <img src="asd.png" alt="Robux" class="robux-icon">350
+                                </p>
+                                <span class="btn-action-indicator">Adquirir &rarr;</span>
+                            </div>
                         </div>
                     </div>
 
                     <div class="producto-card" onclick="irABuy('Rainbow Garama (650M)', '800', 'Desbloquea al mítico Rainbow Garama con estadísticas oficiales de 650M para utilizarlo directamente en tus partidas.', 'premium-item')">
-                        <div class="producto-visual">🌈 Rainbow Garama</div>
+                        <div class="producto-visual" style="color: #f43f5e;">🌈 Rainbow Garama</div>
                         <div class="producto-info">
                             <h2 class="producto-titulo">Rainbow Garama (650M)</h2>
-                            <p class="producto-descripcion">Consigue la versión especial Rainbow Garama con estadísticas base de 650M.</p>
-                            <p class="producto-precio">
-                                <img src="asd.png" alt="Robux" class="robux-icon">800
-                            </p>
+                            <p class="producto-descripcion">Consigue la versión mítica Rainbow Garama con estadísticas avanzadas de combate de 650M.</p>
+                            <div class="producto-footer">
+                                <p class="producto-precio">
+                                    <img src="asd.png" alt="Robux" class="robux-icon">800
+                                </p>
+                                <span class="btn-action-indicator">Adquirir &rarr;</span>
+                            </div>
                         </div>
                     </div>
                 </div>
