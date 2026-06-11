@@ -3,54 +3,81 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mi Tienda de Roblox - Inicio</title>
+    <title>Roblox Premium Store</title>
     <style>
         * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
         }
 
         body {
-            background-color: #f4f7f6;
-            color: #333;
-            padding: 20px;
+            /* Imagen de fondo configurada de forma profesional */
+            background-image: linear-gradient(rgba(15, 23, 42, 0.85), rgba(15, 23, 42, 0.85)), url('background imgg.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: #f1f5f9;
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
         }
 
         header {
             text-align: center;
-            padding: 30px 0;
-            background: linear-gradient(135deg, #2c3e50, #3498db);
-            color: white;
-            border-radius: 8px;
-            margin-bottom: 30px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            margin-bottom: 50px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
         }
 
-        h1 {
-            font-size: 2.5rem;
+        header h1 {
+            font-size: 2.8rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            color: #ffffff;
             margin-bottom: 10px;
         }
 
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
+        header p {
+            color: #94a3b8;
+            font-size: 1.1rem;
+        }
+
+        /* Estilos de las Nuevas Secciones */
+        .seccion-tienda {
+            margin-bottom: 50px;
+        }
+
+        .seccion-titulo {
+            font-size: 1.6rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #38bdf8; /* Azul tecnológico profesional */
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
         }
 
         .grid-productos {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 25px;
-            padding: 10px;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
         }
 
+        /* Tarjetas de Producto Menos Coloridas y Más Elegantes */
         .producto-card {
-            background-color: white;
-            border-radius: 8px;
+            background: rgba(30, 41, 59, 0.7); /* Fondo oscuro semitransparente */
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 12px;
             overflow: hidden;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             cursor: pointer;
             display: flex;
             flex-direction: column;
@@ -58,69 +85,70 @@
 
         .producto-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+            border-color: rgba(56, 189, 248, 0.4);
+            box-shadow: 0 12px 20px rgba(0, 0, 0, 0.4);
+            background: rgba(30, 41, 59, 0.85);
         }
 
-        .producto-imagen {
+        /* Contenedor visual del producto minimalista */
+        .producto-visual {
             width: 100%;
-            height: 200px;
-            background-color: #e0e0e0;
+            height: 180px;
+            background: rgba(15, 23, 42, 0.6);
             display: flex;
             align-items: center;
             justify-content: center;
-            color: white;
-            font-size: 1.2rem;
-            font-weight: bold;
+            font-size: 1.1rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            color: #cbd5e1;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
         }
 
-        /* Colores de fondo para las tarjetas de ítems de Roblox */
-        .img-1 { background: #ff7675; }
-        .img-2 { background: #74b9ff; }
-        .img-3 { background: #55efc4; }
-        .img-4 { background: #ffeaa7; color: #2d3436 !important; }
-
         .producto-info {
-            padding: 20px;
+            padding: 24px;
             display: flex;
             flex-direction: column;
             flex-grow: 1;
         }
 
         .producto-titulo {
-            font-size: 1.4rem;
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #ffffff;
             margin-bottom: 10px;
-            color: #2c3e50;
         }
 
         .producto-descripcion {
             font-size: 0.95rem;
-            color: #7f8c8d;
-            margin-bottom: 15px;
-            line-height: 1.4;
+            color: #94a3b8;
+            margin-bottom: 20px;
+            line-height: 1.5;
             flex-grow: 1;
         }
 
         .producto-precio {
-            font-size: 1.6rem;
-            font-weight: bold;
-            color: #d4af37; /* Color dorado */
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: #f59e0b; /* Color del Robux integrado limpiamente */
             margin-top: auto;
             display: flex;
             align-items: center;
+            gap: 8px;
         }
 
         .robux-icon {
-            width: 24px;
-            height: 24px;
-            vertical-align: middle;
-            margin-right: 6px;
+            width: 22px;
+            height: 22px;
+            object-fit: contain;
         }
 
         footer {
             text-align: center;
-            margin-top: 50px;
-            padding: 20px;
-            color: #7f8c8d;
+            margin-top: 80px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            color: #64748b;
             font-size: 0.9rem;
         }
     </style>
@@ -129,70 +157,80 @@
 
     <div class="container">
         <header>
-            <h1>Mi Tienda de Roblox</h1>
-            <p>Selecciona el ítem o pase que deseas adquirir para ver los detalles de compra</p>
+            <h1>ROBLOX PREMIUM STORE</h1>
+            <p>Servicio de distribución de licencias, pases y elementos UGC exclusivos</p>
         </header>
 
-        <main class="grid-productos">
-            <div class="producto-card" onclick="irABuy('Kit de Animación Ninja', '250', 'Consigue las animaciones exclusivas de Ninja para tu avatar de Roblox. Incluye salto, caída, carrera y pose estática optimizada.', 'img-1')">
-                <div class="producto-imagen img-1">🥷 Animación Ninja</div>
-                <div class="producto-info">
-                    <h2 class="producto-titulo">Kit de Animación Ninja</h2>
-                    <p class="producto-descripcion">Paquete de movimientos ninja exclusivo para lucir genial en cualquier juego.</p>
-                    <p class="producto-precio">
-                        <img src="asd.png" alt="Robux" class="robux-icon">250
-                    </p>
-                </div>
-            </div>
+        <main>
+            <section class="seccion-tienda">
+                <h2 class="seccion-titulo">🎫 Pases de Juego (Gamepasses)</h2>
+                
+                <div class="grid-productos">
+                    <div class="producto-card" onclick="irABuy('Gamepass: Radio Portátil', '500', 'Escucha tus canciones favoritas en cualquier servidor que permita audio. Solo equipa tu radio e introduce el ID de tu canción.', 'premium-item')">
+                        <div class="producto-visual">📻 TRANSMISOR DE AUDIO</div>
+                        <div class="producto-info">
+                            <h2 class="producto-titulo">Radio Portátil</h2>
+                            <p class="producto-descripcion">Habilita la sincronización de audios ID personalizados en tiempo real dentro del servidor.</p>
+                            <p class="producto-precio">
+                                <img src="asd.png" alt="Robux" class="robux-icon">500
+                            </p>
+                        </div>
+                    </div>
 
-            <div class="producto-card" onclick="irABuy('Gamepass: Radio Portátil', '500', 'Escucha tus canciones favoritas en cualquier servidor que permita audio. Solo equipa tu radio e introduce el ID de tu canción.', 'img-2')">
-                <div class="producto-imagen img-2">📻 Radio Portátil</div>
-                <div class="producto-info">
-                    <h2 class="producto-titulo">Gamepass: Radio Portátil</h2>
-                    <p class="producto-descripcion">¡Pon música personalizada para ti y tus amigos en tiempo real!</p>
-                    <p class="producto-precio">
-                        <img src="asd.png" alt="Robux" class="robux-icon">500
-                    </p>
+                    <div class="producto-card" onclick="irABuy('Pase VIP Servidores', '1200', 'Acceso de por vida a los comandos básicos del servidor, chat con color exclusivo y un prefijo [VIP] antes de tu nombre.', 'premium-item')">
+                        <div class="producto-visual">✨ ACCESO VIP EXCLUSIVO</div>
+                        <div class="producto-info">
+                            <h2 class="producto-titulo">Pase VIP Premium</h2>
+                            <p class="producto-descripcion">Desbloquea el prefijo de chat exclusivo, comandos de utilidad avanzados y multiplicadores.</p>
+                            <p class="producto-precio">
+                                <img src="asd.png" alt="Robux" class="robux-icon">1200
+                            </p>
+                        </div>
+                    </div>
                 </div>
-            </div>
+            </section>
 
-            <div class="producto-card" onclick="irABuy('Dominus Frigidus Falso', '150', '¿Siempre quisiste un Dominus? Consigue esta réplica en formato UGC diseñada con materiales helados y detalles premium.', 'img-3')">
-                <div class="producto-imagen img-3">👑 Dominus Frigidus (UGC)</div>
-                <div class="producto-info">
-                    <h2 class="producto-titulo">Dominus Frigidus (UGC)</h2>
-                    <p class="producto-descripcion">Accesorio UGC para la cabeza con diseño de capucha legendaria helada.</p>
-                    <p class="producto-precio">
-                        <img src="asd.png" alt="Robux" class="robux-icon">150
-                    </p>
-                </div>
-            </div>
+            <section class="seccion-tienda">
+                <h2 class="seccion-titulo">📦 Accesorios de Avatar (UGC)</h2>
+                
+                <div class="grid-productos">
+                    <div class="producto-card" onclick="irABuy('Kit de Animación Ninja', '250', 'Consigue las animaciones exclusivas de Ninja para tu avatar de Roblox. Incluye salto, caída, carrera y pose estática optimizada.', 'premium-item')">
+                        <div class="producto-visual">🥷 PACK DE MOVIMIENTO</div>
+                        <div class="producto-info">
+                            <h2 class="producto-titulo">Kit de Animación Ninja</h2>
+                            <p class="producto-descripcion">Aplica estéticas de movimiento ninja personalizadas a las mecánicas básicas de tu avatar.</p>
+                            <p class="producto-precio">
+                                <img src="asd.png" alt="Robux" class="robux-icon">250
+                            </p>
+                        </div>
+                    </div>
 
-            <div class="producto-card" onclick="irABuy('Pase VIP Servidores', '1200', 'Acceso de por vida a los comandos básicos del servidor, chat con color exclusivo y un prefijo [VIP] antes de tu nombre.', 'img-4')">
-                <div class="producto-imagen img-4">✨ Pase VIP Premium</div>
-                <div class="producto-info">
-                    <h2 class="producto-titulo">Pase VIP Premium</h2>
-                    <p class="producto-descripcion">Desbloquea comandos, tags exclusivos de chat y beneficios únicos.</p>
-                    <p class="producto-precio">
-                        <img src="asd.png" alt="Robux" class="robux-icon">1200
-                    </p>
+                    <div class="producto-card" onclick="irABuy('Dominus Frigidus Falso', '150', '¿Siempre quisiste un Dominus? Consigue esta réplica en formato UGC diseñada con materiales helados y detalles premium.', 'premium-item')">
+                        <div class="producto-visual">👑 ACCESORIO LEGENDARIO</div>
+                        <div class="producto-info">
+                            <h2 class="producto-titulo">Dominus Frigidus (UGC)</h2>
+                            <p class="producto-descripcion">Cosmético UGC premium adaptable para la cabeza diseñado bajo estética ártica.</p>
+                            <p class="producto-precio">
+                                <img src="asd.png" alt="Robux" class="robux-icon">150
+                            </p>
+                        </div>
+                    </div>
                 </div>
-            </div>
+            </section>
         </main>
 
         <footer>
-            <p>&copy; 2026 Mi Tienda de Roblox. Proyecto listo para GitHub Pages.</p>
+            <p>&copy; 2026 Roblox Premium Store. Licencia de catálogo digital.</p>
         </footer>
     </div>
 
     <script>
         function irABuy(nombre, precio, descripcion, claseImagen) {
-            // Guardamos los datos en localStorage (solo enviamos el número puro del precio)
             localStorage.setItem('producto_nombre', nombre);
             localStorage.setItem('producto_precio', precio);
             localStorage.setItem('producto_descripcion', descripcion);
             localStorage.setItem('producto_clase_imagen', claseImagen);
             
-            // Redireccionamos a la página de compra
             window.location.href = 'buy.html';
         }
     </script>
