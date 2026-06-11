@@ -105,7 +105,6 @@
             overflow: hidden;
         }
 
-        /* Brillo de fondo estético */
         .product-summary-box::before {
             content: '';
             position: absolute;
@@ -153,7 +152,7 @@
         .product-price {
             font-size: 2rem;
             font-weight: 800;
-            color: #fbbf24; /* Color dorado premium de Robux */
+            color: #fbbf24;
             display: flex;
             align-items: center;
             gap: 10px;
@@ -179,14 +178,14 @@
             line-height: 1.5;
         }
 
-        /* BOTÓN DE ACCIÓN MEGA COMPRA DISCORD */
+        /* BOTÓN DE ACCIÓN DISCORD */
         .btn-discord-checkout {
             display: flex;
             align-items: center;
             justify-content: center;
             gap: 14px;
             width: 100%;
-            background: #5865F2; /* Color corporativo oficial Discord */
+            background: #5865F2;
             color: #ffffff;
             border: none;
             padding: 18px 30px;
@@ -249,12 +248,12 @@
                 </div>
 
                 <div class="instruction-box">
-                    <strong>¿Cómo funciona?</strong> Al presionar el botón inferior serás redirigido a nuestra central de Discord. Abre un ticket adjuntando la captura de esta pantalla para procesar la entrega de forma inmediata.
+                    <strong>¿Cómo funciona?</strong> Al presionar el botón inferior serás redirigido a nuestra central de Discord. Abre un ticket en el canal de tienda para comprar este item.
                 </div>
 
-                <a href="https://discord.gg/TU_INVITACION" id="discord-btn" class="btn-discord-checkout">
+                <a href="https://discord.gg/Q6bubRfbYX" id="discord-btn" class="btn-discord-checkout" target="_blank">
                     <img src="discord-logo.png" alt="Discord" class="discord-icon-large">
-                    <span>Reclamar Vía Discord</span>
+                    <span>Comprar en Discord</span>
                 </a>
             </main>
         </div>
@@ -266,17 +265,14 @@
 
     <script>
         document.addEventListener("DOMContentLoaded", function() {
-            // Obtener los datos almacenados de localStorage generados en index.html
             const productoNombre = localStorage.getItem('producto_nombre') || 'Producto Premium';
             const productoPrecio = localStorage.getItem('producto_precio') || '0';
             const productoDescripcion = localStorage.getItem('producto_descripcion') || 'Sin descripción disponible actualmente.';
             
-            // Asignar los valores a las etiquetas visuales correspondientes
             document.getElementById('display-nombre').textContent = productoNombre;
             document.getElementById('display-precio').textContent = productoPrecio;
             document.getElementById('display-descripcion').textContent = productoDescripcion;
             
-            // Opcional: Cambiar dinámicamente el título del navegador para mejorar el UX
             document.title = `Comprar ${productoNombre} | Roblox Store`;
         });
     </script>
