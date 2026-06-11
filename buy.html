@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Confirmar Compra - Mi Tienda</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #f4f7f6;
+            color: #333;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .checkout-card {
+            background-color: white;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            max-width: 600px;
+            width: 100%;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .badge-imagen {
+            height: 250px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            font-weight: bold;
+        }
+
+        /* Hereda los colores del lobby */
+        .img-1 { background: #ff7675; color: white; }
+        .img-2 { background: #74b9ff; color: white; }
+        .img-3 { background: #55efc4; color: white; }
+        .img-4 { background: #ffeaa7; color: #2d3436; }
+
+        .checkout-content {
+            padding: 30px;
+        }
+
+        .volver-btn {
+            display: inline-block;
+            margin-bottom: 20px;
+            color: #3498db;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+
+        .volver-btn:hover {
+            text-decoration: underline;
+        }
+
+        h1 {
+            font-size: 2rem;
+            color: #2c3e50;
+            margin-bottom: 15px;
+        }
+
+        .descripcion {
+            font-size: 1.05rem;
+            color: #636e72;
+            line-height: 1.6;
+            margin-bottom: 25px;
+        }
+
+        .precio-seccion {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-top: 2px solid #f1f2f6;
+            border-bottom: 2px solid #f1f2f6;
+            padding: 20px 0;
+            margin-bottom: 25px;
+        }
+
+        .precio-label {
+            font-size: 1.1rem;
+            color: #2c3e50;
+            font-weight: 600;
+        }
+
+        .precio-valor {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #27ae60;
+        }
+
+        .btn-comprar {
+            display: block;
+            width: 100%;
+            background-color: #27ae60;
+            color: white;
+            text-align: center;
+            padding: 15px;
+            border: none;
+            border-radius: 6px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.2s ease;
+        }
+
+        .btn-comprar:hover {
+            background-color: #219a52;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="checkout-card">
+        <div id="productoImagen" class="badge-imagen">📦</div>
+        
+        <div class="checkout-content">
+            <a href="index.html" class="volver-btn">&larr; Volver a la tienda</a>
+            <h1 id="productoNombre">Cargando producto...</h1>
+            <p id="productoDescripcion" class="descripcion">Cargando detalles...</p>
+            
+            <div class="precio-seccion">
+                <span class="precio-label">Total a Pagar:</span>
+                <span id="productoPrecio" class="precio-valor">0.00 €</span>
+            </div>
+            
+            <button class="btn-comprar" onclick="procesarPago()">Confirmar y Pagar</button>
+        </div>
+    </div>
+
+    <script>
+        // Leemos las variables guardadas en localStorage
+        const nombre = localStorage.getItem('producto_nombre');
+        const precio = localStorage.getItem('producto_precio');
+        const descripcion = localStorage.getItem('producto_descripcion');
+        const claseImagen = localStorage.getItem('producto_clase_imagen');
+
+        // Si existen datos guardados, modificamos la vista
+        if (nombre && precio) {
+            document.getElementById('productoNombre').innerText = nombre;
+            document.getElementById('productoPrecio').innerText = precio + ' €';
+            document.getElementById('productoDescripcion').innerText = descripcion;
+            
+            // Asignamos el color de fondo y el icono correspondiente
+            const imgDiv = document.getElementById('productoImagen');
+            imgDiv.className = 'badge-imagen ' + claseImagen;
+            
+            if(claseImagen === 'img-1') imgDiv.innerText = '🎧';
+            if(claseImagen === 'img-2') imgDiv.innerText = '⌨️';
+            if(claseImagen === 'img-3') imgDiv.innerText = '🖱️';
+            if(claseImagen === 'img-4') imgDiv.innerText = '🗺️';
+        } else {
+            // Protección por si abren buy.html de manera directa
+            document.getElementById('productoNombre').innerText = "Ningún producto seleccionado";
+            document.getElementById('productoDescripcion').innerText = "Regresa al lobby para elegir un artículo.";
+        }
+
+        function procesarPago() {
+            alert('¡Gracias por tu compra! Esto es una simulación de pago exitosa.');
+        }
+    </script>
+</body>
+</html>
