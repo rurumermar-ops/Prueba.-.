@@ -3,18 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Confirmar Compra - Mi Tienda</title>
+    <title>Confirmar Transacción - Roblox Premium Store</title>
     <style>
         * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
         }
 
         body {
-            background-color: #f4f7f6;
-            color: #333;
+            /* Mismo fondo profesional que el index.html */
+            background-image: linear-gradient(rgba(15, 23, 42, 0.9), rgba(15, 23, 42, 0.9)), url('background imgg.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: #f1f5f9;
             padding: 20px;
             display: flex;
             justify-content: center;
@@ -23,151 +27,167 @@
         }
 
         .checkout-card {
-            background-color: white;
-            border-radius: 12px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            max-width: 600px;
+            background: rgba(30, 41, 59, 0.75);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 16px;
+            max-width: 550px;
             width: 100%;
             overflow: hidden;
-            display: flex;
-            flex-direction: column;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
         }
 
-        .badge-imagen {
-            height: 250px;
+        .badge-visual {
+            height: 160px;
+            background: rgba(15, 23, 42, 0.5);
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 3rem;
-            font-weight: bold;
+            font-size: 3.5rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
         }
 
-        /* Hereda los colores del lobby */
-        .img-1 { background: #ff7675; color: white; }
-        .img-2 { background: #74b9ff; color: white; }
-        .img-3 { background: #55efc4; color: white; }
-        .img-4 { background: #ffeaa7; color: #2d3436; }
-
         .checkout-content {
-            padding: 30px;
+            padding: 35px;
         }
 
         .volver-btn {
             display: inline-block;
-            margin-bottom: 20px;
-            color: #3498db;
+            margin-bottom: 25px;
+            color: #38bdf8;
             text-decoration: none;
             font-weight: 600;
             font-size: 0.95rem;
+            transition: color 0.2s;
         }
 
         .volver-btn:hover {
+            color: #7dd3fc;
             text-decoration: underline;
         }
 
         h1 {
-            font-size: 2rem;
-            color: #2c3e50;
+            font-size: 1.8rem;
+            color: #ffffff;
             margin-bottom: 15px;
+            font-weight: 700;
         }
 
         .descripcion {
-            font-size: 1.05rem;
-            color: #636e72;
+            font-size: 1rem;
+            color: #94a3b8;
             line-height: 1.6;
-            margin-bottom: 25px;
+            margin-bottom: 30px;
         }
 
         .precio-seccion {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            border-top: 2px solid #f1f2f6;
-            border-bottom: 2px solid #f1f2f6;
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
             padding: 20px 0;
-            margin-bottom: 25px;
+            margin-bottom: 30px;
         }
 
         .precio-label {
-            font-size: 1.1rem;
-            color: #2c3e50;
-            font-weight: 600;
+            font-size: 1.05rem;
+            color: #cbd5e1;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .precio-contenedor {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .robux-icon {
+            width: 28px;
+            height: 28px;
+            object-fit: contain;
         }
 
         .precio-valor {
             font-size: 2rem;
-            font-weight: bold;
-            color: #27ae60;
+            font-weight: 700;
+            color: #f59e0b; /* Dorado Robux */
         }
 
         .btn-comprar {
             display: block;
             width: 100%;
-            background-color: #27ae60;
+            background-color: #0284c7; /* Azul profesional */
             color: white;
             text-align: center;
-            padding: 15px;
+            padding: 16px;
             border: none;
-            border-radius: 6px;
-            font-size: 1.2rem;
-            font-weight: bold;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: 600;
             cursor: pointer;
-            transition: background-color 0.2s ease;
+            transition: background-color 0.2s, transform 0.1s;
+            box-shadow: 0 4px 12px rgba(2, 132, 199, 0.3);
         }
 
         .btn-comprar:hover {
-            background-color: #219a52;
+            background-color: #0369a1;
+        }
+
+        .btn-comprar:active {
+            transform: scale(0.98);
         }
     </style>
 </head>
 <body>
 
     <div class="checkout-card">
-        <div id="productoImagen" class="badge-imagen">📦</div>
+        <div id="productoVisual" class="badge-visual">📦</div>
         
         <div class="checkout-content">
-            <a href="index.html" class="volver-btn">&larr; Volver a la tienda</a>
-            <h1 id="productoNombre">Cargando producto...</h1>
-            <p id="productoDescripcion" class="descripcion">Cargando detalles...</p>
+            <a href="index.html" class="volver-btn">&larr; Volver al catálogo</a>
+            <h1 id="productoNombre">Cargando artículo...</h1>
+            <p id="productoDescripcion" class="descripcion">Cargando especificaciones del producto seleccionado...</p>
             
             <div class="precio-seccion">
-                <span class="precio-label">Total a Pagar:</span>
-                <span id="productoPrecio" class="precio-valor">0.00 €</span>
+                <span class="precio-label">Precio del Ítem:</span>
+                <div class="precio-contenedor">
+                    <img src="asd.png" alt="Robux" class="robux-icon">
+                    <span id="productoPrecio" class="precio-valor">0</span>
+                </div>
             </div>
             
-            <button class="btn-comprar" onclick="procesarPago()">Confirmar y Pagar</button>
+            <button class="btn-comprar" onclick="procesarPago()">Adquirir con Robux</button>
         </div>
     </div>
 
     <script>
-        // Leemos las variables guardadas en localStorage
+        // Capturar la información enviada desde index.html
         const nombre = localStorage.getItem('producto_nombre');
         const precio = localStorage.getItem('producto_precio');
         const descripcion = localStorage.getItem('producto_descripcion');
-        const claseImagen = localStorage.getItem('producto_clase_imagen');
 
-        // Si existen datos guardados, modificamos la vista
+        // Validar e inyectar los datos en la interfaz de forma dinámica
         if (nombre && precio) {
             document.getElementById('productoNombre').innerText = nombre;
-            document.getElementById('productoPrecio').innerText = precio + ' €';
+            document.getElementById('productoPrecio').innerText = precio;
             document.getElementById('productoDescripcion').innerText = descripcion;
             
-            // Asignamos el color de fondo y el icono correspondiente
-            const imgDiv = document.getElementById('productoImagen');
-            imgDiv.className = 'badge-imagen ' + claseImagen;
-            
-            if(claseImagen === 'img-1') imgDiv.innerText = '🎧';
-            if(claseImagen === 'img-2') imgDiv.innerText = '⌨️';
-            if(claseImagen === 'img-3') imgDiv.innerText = '🖱️';
-            if(claseImagen === 'img-4') imgDiv.innerText = '🗺️';
+            // Colocar un emoji personalizado en la cabecera según el artículo seleccionado
+            const visualDiv = document.getElementById('productoVisual');
+            if (nombre.includes('Radio')) visualDiv.innerText = '📻';
+            else if (nombre.includes('VIP')) visualDiv.innerText = '✨';
+            else if (nombre.includes('Ninja')) visualDiv.innerText = '🥷';
+            else if (nombre.includes('Dominus')) visualDiv.innerText = '👑';
+            else visualDiv.innerText = '📦';
         } else {
-            // Protección por si abren buy.html de manera directa
-            document.getElementById('productoNombre').innerText = "Ningún producto seleccionado";
-            document.getElementById('productoDescripcion').innerText = "Regresa al lobby para elegir un artículo.";
+            document.getElementById('productoNombre').innerText = "Error de selección";
+            document.getElementById('productoDescripcion').innerText = "Por favor, regresa al menú de inicio y selecciona un producto válido para procesar.";
         }
 
         function procesarPago() {
-            alert('¡Gracias por tu compra! Esto es una simulación de pago exitosa.');
+            alert('¡Simulación de transferencia completada! Tu solicitud de compra ha sido procesada con éxito para este proyecto.');
         }
     </script>
 </body>
